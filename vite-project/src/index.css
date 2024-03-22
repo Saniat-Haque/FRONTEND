@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+  .navbariconDesing{
+    @apply flex cursor-pointer justify-center rounded-[3px] pl-[10px] pr-[10px] pb-[22px] pt-[22px] hover:bg-blue-500/10  duration-200;
+  }
+}
+@layer components{
+  .iconsUnderLineDesign{
+    @apply bg-[#0284c7] opacity-0 group-hover:opacity-100 transition-opacity duration-200 h-[2px] w-[60px];
+  }
+}
+@layer components{
+  .dropdownMenuItemDesing{
+    @apply p-[10px] hover:bg-blue-500/10 rounded-[5px];
+  }
+}
