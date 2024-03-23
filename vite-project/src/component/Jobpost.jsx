@@ -1,7 +1,16 @@
-import React from 'react';
-import { SlOptionsVertical } from "react-icons/sl";
 import { TiLocationArrow } from "react-icons/ti";
-function Jobpost(props) {
+import { SlOptionsVertical } from "react-icons/sl";
+import { useState } from "react";
+import JobpostPopup from "./JobpostPopup";
+
+
+function Jobpost() {
+
+    const [toggle,settoggle] = useState(false);
+    
+
+
+
     return (
         <div id="mainContent" className="mt-[30px] max-h-[600px] max-w-[650px] border border-gray-300 rounded-[7px] m-auto hover:border-blue-300 duration-100 shadow-lg shadow-gray-200">
             <div className="flex">
@@ -26,7 +35,7 @@ function Jobpost(props) {
                     <p className="font-light"><span>Mon</span> to <span>tue</span> | <span>8-hours</span> | <span>09.00am</span> to <span>05.00pm</span></p>
                     <p className="font-light">Entry Level</p>
                     <div className="font-light flex items-center">
-                        <button id="jobdescriptionSecondscreen" className="font-normal group group border border-white bg-gray-100 focus:bg-blue-100 focus:border-blue-500 rounded-[7px] mt-[10px] p-[5px]">Job-description</button>
+                        <button onClick={()=>{settoggle(true)}} id="jobdescriptionSecondscreen" className="font-normal group group border border-white bg-gray-100 focus:bg-blue-100 focus:border-blue-500 rounded-[7px] mt-[10px] p-[5px]">Job-description</button>
                     </div>
                     <div className=' absolute top-0 right-0 cursor-pointer mt-[15px] p-[10px] rounded-[10px] hover:bg-gray-200 '>
                         <SlOptionsVertical color='black'/>
@@ -34,7 +43,16 @@ function Jobpost(props) {
                     
                 </div>
             </div>
+                                            
+
+                {toggle && <JobpostPopup/>}
+
+        
+
+
+
         </div>
+        
     );
 }
 

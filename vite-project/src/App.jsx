@@ -4,6 +4,8 @@ import Filter from './component/Filter';
 import Jobpost from './component/Jobpost';
 import Line from './component/Line';
 import { useState } from 'react';
+import NotificationPopup from './component/NotificationPopup';
+
 
 function App() {
   
@@ -37,6 +39,7 @@ function App() {
       </div>
       <Line/>
       <Jobpost/>
+      
 
       
     </>
