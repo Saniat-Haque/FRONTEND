@@ -5,11 +5,12 @@ import { IoMdSettings } from "react-icons/io";
 import { FiHelpCircle } from "react-icons/fi";
 
 
+
 function Profilepopup(props) {
     return (
-        <div className=' w-[350px] shadow-lg absolute right-28  border bg-white z-40 '> 
-            <div className=' flex h-[60px] bg-gray-200 border-b  '>
-                <h3 className=' font-medium m-auto font-serif '>hsaniat63@gmail.com</h3>
+        <div className=' w-[350px] shadow-lg absolute right-28  border  bg-white z-40 '> 
+            <div className='chatProfileNotificationsPopupScreenHeaderDesign  '>
+                <h3 className=' font-medium m-auto font-serif bg-blue-600 text-white text-[20px] '>hsaniat63@gmail.com</h3>
             </div>
             <div className=' p-[20px] '>
 

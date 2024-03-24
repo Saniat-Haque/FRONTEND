@@ -4,7 +4,9 @@ import Filter from './component/Filter';
 import Jobpost from './component/Jobpost';
 import Line from './component/Line';
 import { useState } from 'react';
-import NotificationPopup from './component/NotificationPopup';
+import SignIn from './component/SignIn';
+import MyJobs from './component/MyJobs';
+
 
 
 function App() {
@@ -22,8 +24,8 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Searchbar />
+        <Navbar />
+           <Searchbar />
       <div className='flex items-center flex-wrap justify-center  py-5 max-w-[1000px] mx-auto'>
         
         <Filter buttonText="Date posted" options={dateOptions} />
@@ -39,6 +41,8 @@ function App() {
       </div>
       <Line/>
       <Jobpost/>
+      {/* <MyJobs/> */}
+      
       
 
       

@@ -6,25 +6,31 @@
   .navbariconDesing{
     @apply flex cursor-pointer justify-center rounded-[3px] pl-[10px] pr-[10px] pb-[22px] pt-[22px] hover:bg-blue-500/10  duration-200;
   }
-}
-@layer components{
   .iconsUnderLineDesign{
     @apply bg-[#0284c7] opacity-0 group-hover:opacity-100 transition-opacity duration-200 h-[2px] w-[60px];
   }
-}
-@layer components{
   .dropdownMenuItemDesing{
     @apply p-[10px] hover:bg-blue-500/10 rounded-[5px];
   }
-}
-@layer components{
   .jobdetails{
-      @apply flex items-center p-[10px] border-b m-[2px] rounded-[7px] ;
+    @apply flex items-center p-[10px] border-b m-[2px] rounded-[7px] ;
   }
-}
-
-@layer components{
   .popupProfiledesign{
     @apply  cursor-pointer rounded-[7px] mb-[10px]  flex  p-[10px] hover:bg-blue-50;
+  }
+  .googleAppleSigninbuttonDesign{
+    @apply flex h-[45px] cursor-pointer border  border-gray-200 rounded-[7px] items-center justify-center m-[15px] hover:border-blue-200 hover:bg-blue-50 duration-200 ;
+  }
+  .myJobsButtonDesign{
+    @apply bg-blue-500 text-white py-[10px] px-[20px] font-medium rounded-[7px] mx-[20px] flex items-center justify-center hover:bg-blue-700 duration-200 ;
+  }
+  .myJobsNumberDesign{
+    @apply ml-[8px] text-white ;
+  }
+  .chatProfileNotificationsPopupScreenHeaderDesign{
+    @apply bg-blue-600 h-[60px] flex  border-b
+  }
+  .chatProfileNotificationsTextDesign{
+    @apply m-auto font-medium text-[25px] text-white
   }
 }

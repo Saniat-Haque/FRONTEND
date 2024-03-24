@@ -5,94 +5,69 @@ import { CgProfile } from "react-icons/cg";
 import Profilepopup from './Profilepopup';
 import NotificationPopup from "./NotificationPopup";
 import ChatsPopup from "./ChatsPopup";
+import { FaFacebookMessenger } from "react-icons/fa";
 
 function Navbar(props) {
-    const [toggle, setToggle] = useState(false);
-    const [profileToggle, setProfileToggle] = useState(false);
-    const [notificationToggle, setNotificationToggle] = useState(false);
-    const [chatToggle, setChatToggle] = useState(false);
 
-    const chatRef = useRef(null);
-    const notificationRef=useRef(null);
-    const profileRef=useRef(null);
+
+    const [messageToggle, setMessageToggle] = useState(false);
+    const [notificationToggle,setNotificationToggle] =useState(false)
+    const [profileToggle,setProfileToggle]=useState(false)
+    
+    console.log(setMessageToggle)
 
     
-
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (chatRef.current && !chatRef.current.contains(event.target)) {
-                // Click occurred outside the chat popup
-                setChatToggle(false);
-            }
-            if (notificationRef.current && !notificationRef.current.contains(event.target)) {
-                // Click occurred outside the notification popup
-                setNotificationToggle(false);
-            }
-            if (profileRef.current && !profileRef.current.contains(event.target)) {
-                // Click occurred outside the profile popup
-                setProfileToggle(false);
-            }
-        }
-    
-        // Bind the event listener
-        document.addEventListener("mousedown", handleClickOutside);
         
-        // Cleanup the event listener on component unmount
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [chatRef, notificationRef, profileRef]);
+    
+    const handleChatClick = () => {
+        setMessageToggle(prevToggle => !prevToggle); 
+        
+        
+    };
+    const handleNotificationClick = () => {
+         
+        setNotificationToggle(prevToggle=>!prevToggle)
+        
+    };
+    const handleProfileClick = () => {
+         
+        setProfileToggle(prevToggle=>!prevToggle)
+        
+    };
     
 
-    const handleChatClick = () => {
-        setToggle(true);
-        setNotificationToggle(false);
-        setProfileToggle(false);
-        setChatToggle(!chatToggle);
-    };
 
-    const handleProfileClick = () => {
-        setToggle(true);
-        setNotificationToggle(false);
-        setChatToggle(false);
-        setProfileToggle(!profileToggle);
-    };
 
-    const handleNotificationClick = () => {
-        setToggle(false);
-        setProfileToggle(false);
-        setChatToggle(false);
-        setNotificationToggle(!notificationToggle);
-    };
 
     return (
         <nav>
-            <div className="flex justify-between h-[70px] border-b border-solid border-gray-300 items-center">
-                <div className="cursor-pointer ml-[60px] text-2xl font-bold text-blue-600">
-                    <a href='#'>JOOBEY</a>
+            <div className="flex justify-between h-[70px]  border-solid border-b-[2px] border-gray-300 items-center">
+                <div className=" flex items-center  ">
+                    <a className="cursor-pointer ml-[60px] text-2xl font-bold text-blue-600"  href='#'>JOOBEY</a>
+                    <p className=" ml-[20px]  py-[22px] px-[5px] rounded cursor-pointer hover:bg-blue-100 duration-200 ">Home</p>
                 </div>
-                <div className='hidden mr-[200px] border pl-[20px] pr-[20px] pt-1 pb-1 rounded-[30px] text-blue-600 hover:border-blue-600 duration-200'>
+                <div className='hidden mr-[200px] border  pl-[20px] pr-[20px] pt-1 pb-1 rounded-[30px] text-blue-600 hover:border-blue-600 duration-200'>
                     <button>Sign in</button>
                 </div>
 
                 <div className="mr-[50px] relative flex">
                     <div className="group" onClick={handleChatClick}>
                         <div className='navbariconDesing'>
-                            <MdMessage color='black' size={25} />
+                            <FaFacebookMessenger size={23} />
                         </div>
                         <div className="iconsUnderLineDesign"></div>
                     </div>
 
-                    <div className="group" onClick={handleNotificationClick}>
+                    <div className="group" onClick={handleNotificationClick} >
                         <div className='navbariconDesing'>
-                            <IoNotifications size={25} color='black' />
+                            <IoNotifications size={25} color='' />
                         </div>
                         <div className="iconsUnderLineDesign"></div>
                     </div>
 
-                    <div className="group" onClick={handleProfileClick}>
+                    <div className="group" onClick={handleProfileClick} >
                         <div className='navbariconDesing'>
-                            <CgProfile size={25} color='black' />
+                            <CgProfile size={25} color='' />
                         </div>
                         <div className="iconsUnderLineDesign"></div>
                     </div>
@@ -100,14 +75,16 @@ function Navbar(props) {
                     <div className="h-[40px] w-[1px] bg-black opacity-[.3] m-auto ml-[30px] rounded-[50px]"></div>
 
                     <div className="m-auto">
-                        <button className="m-auto pt-[8px] pb-[8px] pl-[30px] pr-[30px] rounded-[30px] text-black border border-gray-400 ml-[50px] hover:border-blue-500 hover:bg-blue-500/10 duration-200">Post - Job/Ref</button>
+                        <button className="m-auto py-[6px]  px-[30px] rounded-[30px] text-[18px] hover:text-white font-bold border border-blue-700 ml-[50px] bg-white  hover:bg-blue-700 duration-200">Refer ?</button>
                     </div>
                 </div>
             </div>
 
-            {profileToggle && <div ref={profileRef}><Profilepopup/></div>}
-            {notificationToggle && <div ref={notificationRef}><NotificationPopup/></div>}
-            {chatToggle && <div ref={chatRef}><ChatsPopup/></div>}
+            
+
+            {messageToggle && <ChatsPopup/> }
+            {notificationToggle && <NotificationPopup/>}
+            {profileToggle && <Profilepopup/>}
         </nav>
     );
 }
