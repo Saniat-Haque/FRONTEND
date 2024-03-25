@@ -6,14 +6,15 @@ import { FiHelpCircle } from "react-icons/fi";
 
 
 
-function Profilepopup() {
+function Profilepopup(props) {
 
+    const {closeSearchBar,myJobPage,handleProfileScreen}=props;
 
-    const [myjobToggle,setMyjobToggle]=useState(false);
+    // const [myjobToggle,setMyjobToggle]=useState(false);
 
-    const myJobHandler=()=>{
-        setMyjobToggle(true)
-    }
+    // const myJobHandler=()=>{
+    //     setMyjobToggle(false)
+    // }
 
     return (
         <div className=' w-[350px] shadow-lg absolute right-28  border  bg-white z-40 '> 
@@ -27,7 +28,7 @@ function Profilepopup() {
                     <h3 > <a  className=' font-bold '>Profile</a></h3>
                 </div>
 
-                <div className='popupProfiledesign ' onClick={myJobHandler} >
+                <div className='popupProfiledesign '  onClick={() => {closeSearchBar(); myJobPage();handleProfileScreen(); }} >
                 <BiSolidBookmarkStar size={30} className=' mr-[10px]' />
                 <h3>My jobs</h3>
                 </div>

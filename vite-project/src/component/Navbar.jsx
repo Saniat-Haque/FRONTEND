@@ -7,7 +7,8 @@ import NotificationPopup from "./NotificationPopup";
 import ChatsPopup from "./ChatsPopup";
 import { FaFacebookMessenger } from "react-icons/fa";
 
-function Navbar() {
+function Navbar(props) {
+    const {closeSearchBar,myJobPage}=props;
     
 
 
@@ -20,7 +21,9 @@ function Navbar() {
     
 
     
-        
+    const handleProfileScreen=()=>{
+        setProfileToggle(false)
+    }
     
     const handleChatClick = () => {
         setMessageToggle(prevToggle => !prevToggle); 
@@ -43,7 +46,7 @@ function Navbar() {
         setNotificationToggle(false)
     };
 
-    console.log(notificationToggle,profileToggle);
+    console.log('this is profile screen-------- :' + profileToggle);
     
 
 
@@ -94,7 +97,7 @@ function Navbar() {
 
             {messageToggle && <ChatsPopup/> }
             {notificationToggle && <NotificationPopup/>}
-            {profileToggle && <Profilepopup  />}
+            {profileToggle && <Profilepopup closeSearchBar={closeSearchBar} myJobPage={myJobPage} handleProfileScreen={handleProfileScreen} />}
         </nav>
     );
 }

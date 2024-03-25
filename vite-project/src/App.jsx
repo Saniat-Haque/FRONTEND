@@ -22,17 +22,29 @@ function App() {
   const [experianceOptions] = useState(["Entry Level","Mid Level","Senior Level","No experience required"]);
     
   const [searchBarState,setSearchBarState]=useState(true);
+  
+  const [myJobState,setMyJobState] = useState(false);
 
   const searchBarHandler=()=>{
     setSearchBarState(false);
+
   }
+
+  const myJobHandler=()=>{
+    setMyJobState(true)
+  }
+  console.log('this is searchbar:' + searchBarState);
+  console.log('this is Myjob page:'+ myJobState);
 
   return (
     <>
-        <Navbar closeSearchBar={searchBarHandler} />
-        {/* {searchBarState && <Searchbar />} */}
-           
-      {/* <div className='flex items-center flex-wrap justify-center  py-5 max-w-[1000px] mx-auto'>
+        <Navbar closeSearchBar={searchBarHandler} myJobPage={myJobHandler} />
+
+        {searchBarState && <Searchbar />  }  
+
+        {searchBarState &&
+        
+          <div className='flex items-center flex-wrap justify-center  py-5 max-w-[1000px] mx-auto'>
         
         <Filter buttonText="Date posted" options={dateOptions} />
         <Filter buttonText="Remote" options={remoteOptions} />
@@ -45,9 +57,14 @@ function App() {
         <Filter buttonText="Experience Level" options={experianceOptions} />
 
       </div>
-      <Line/> */}
-      {/* <Jobpost/> */}
-      <MyJobs/>
+        }
+
+        {searchBarState && <Line/>}
+        {searchBarState && <Jobpost/> }
+           
+        {myJobState ? <MyJobs /> : null}
+      
+      
       
       
       

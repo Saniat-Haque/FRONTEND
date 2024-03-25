@@ -7,12 +7,11 @@ function MyJobs(props) {
 
     const [savedJob, setSavedJob] = useState("1");
     const [sentRequest, setSentRequest] = useState("0");
-    const [interviews, setInterviews] = useState("11");
-    const [archived, setArchived] = useState("11");
+    const [interviews, setInterviews] = useState("0");
+    const [archived, setArchived] = useState("0");
+
 
     const [savedJobToggle, setSavedJobToggle] = useState(false); //true
-
-
     const [requestSentToggle, setRequestSentToggle] = useState(false);
     const [interviewToggle, setInterviewToggle] = useState(false); 
     const [archiveToggle, setArchiveToggle] = useState(false);
@@ -88,8 +87,13 @@ function MyJobs(props) {
             
             
             
+            
 
-            {savedJob=== "0"   ? <MyjobStatic firstLineText='No jobs saved yet' secondLineText='Jobs you save appear here.' />:<Jobpost/>  }
+            {savedJobToggle? savedJob === "0" ? <MyjobStatic firstLineText='No jobs saved yet' secondLineText='Jobs you save appear here.' />
+                : <Jobpost />
+                : null
+             }
+            
 
 
             {requestSentToggle && <MyjobStatic firstLineText='No request sent yet' secondLineText='Request you sent appear here.' />}
@@ -97,8 +101,6 @@ function MyJobs(props) {
             {interviewToggle && <MyjobStatic firstLineText='No interview yet' secondLineText='Your interview appear here.' />}
 
             {archiveToggle && <MyjobStatic firstLineText='Nothing yet' secondLineText='Your archived appear here ' />}
-
-                
             </div>
         </div>
     );
