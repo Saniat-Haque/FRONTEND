@@ -21,12 +21,18 @@ function App() {
   const [postedbyOptions] = useState(["Employer","Staffing agency"]);
   const [experianceOptions] = useState(["Entry Level","Mid Level","Senior Level","No experience required"]);
     
+  const [searchBarState,setSearchBarState]=useState(true);
+
+  const searchBarHandler=()=>{
+    setSearchBarState(false);
+  }
 
   return (
     <>
-        <Navbar />
-           <Searchbar />
-      <div className='flex items-center flex-wrap justify-center  py-5 max-w-[1000px] mx-auto'>
+        <Navbar closeSearchBar={searchBarHandler} />
+        {/* {searchBarState && <Searchbar />} */}
+           
+      {/* <div className='flex items-center flex-wrap justify-center  py-5 max-w-[1000px] mx-auto'>
         
         <Filter buttonText="Date posted" options={dateOptions} />
         <Filter buttonText="Remote" options={remoteOptions} />
@@ -39,9 +45,10 @@ function App() {
         <Filter buttonText="Experience Level" options={experianceOptions} />
 
       </div>
-      <Line/>
-      <Jobpost/>
-      {/* <MyJobs/> */}
+      <Line/> */}
+      {/* <Jobpost/> */}
+      <MyJobs/>
+      
       
       
 

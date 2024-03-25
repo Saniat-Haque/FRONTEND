@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CgProfile } from "react-icons/cg";
 import { BiSolidBookmarkStar } from "react-icons/bi";
 import { IoMdSettings } from "react-icons/io";
@@ -6,7 +6,15 @@ import { FiHelpCircle } from "react-icons/fi";
 
 
 
-function Profilepopup(props) {
+function Profilepopup() {
+
+
+    const [myjobToggle,setMyjobToggle]=useState(false);
+
+    const myJobHandler=()=>{
+        setMyjobToggle(true)
+    }
+
     return (
         <div className=' w-[350px] shadow-lg absolute right-28  border  bg-white z-40 '> 
             <div className='chatProfileNotificationsPopupScreenHeaderDesign  '>
@@ -14,12 +22,12 @@ function Profilepopup(props) {
             </div>
             <div className=' p-[20px] '>
 
-                <div className='popupProfiledesign ' >
+                <div  className='popupProfiledesign ' >
                     <CgProfile size={30} className=' mr-[10px] '/>
                     <h3 > <a  className=' font-bold '>Profile</a></h3>
                 </div>
 
-                <div className='popupProfiledesign'>
+                <div className='popupProfiledesign ' onClick={myJobHandler} >
                 <BiSolidBookmarkStar size={30} className=' mr-[10px]' />
                 <h3>My jobs</h3>
                 </div>

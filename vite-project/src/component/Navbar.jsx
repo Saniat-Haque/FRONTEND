@@ -7,33 +7,43 @@ import NotificationPopup from "./NotificationPopup";
 import ChatsPopup from "./ChatsPopup";
 import { FaFacebookMessenger } from "react-icons/fa";
 
-function Navbar(props) {
+function Navbar() {
+    
 
+
+ 
 
     const [messageToggle, setMessageToggle] = useState(false);
     const [notificationToggle,setNotificationToggle] =useState(false)
     const [profileToggle,setProfileToggle]=useState(false)
     
-    console.log(setMessageToggle)
+    
 
     
         
     
     const handleChatClick = () => {
         setMessageToggle(prevToggle => !prevToggle); 
+        setNotificationToggle(false);
+        setProfileToggle(false);
         
         
     };
     const handleNotificationClick = () => {
          
         setNotificationToggle(prevToggle=>!prevToggle)
+        setProfileToggle(false)
+        setMessageToggle(false)
         
     };
     const handleProfileClick = () => {
          
         setProfileToggle(prevToggle=>!prevToggle)
-        
+        setMessageToggle(false)
+        setNotificationToggle(false)
     };
+
+    console.log(notificationToggle,profileToggle);
     
 
 
@@ -84,7 +94,7 @@ function Navbar(props) {
 
             {messageToggle && <ChatsPopup/> }
             {notificationToggle && <NotificationPopup/>}
-            {profileToggle && <Profilepopup/>}
+            {profileToggle && <Profilepopup  />}
         </nav>
     );
 }
