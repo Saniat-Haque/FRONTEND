@@ -17,7 +17,7 @@ function Jobpost() {
 
 
     return (
-        <div id="mainContent" className="mt-[30px] max-h-[600px] max-w-[650px] border border-gray-300 rounded-[7px] m-auto hover:border-blue-300 duration-100 shadow-lg shadow-gray-200">
+        <div id="mainContent" className="mt-[30px] max-h-[600px] max-w-[650px] border border-gray-200 rounded-[7px] m-auto hover:border-blue-300 duration-100 shadow-sm shadow-gray-200">
             <div className="flex">
                 <div className="ml-[30px] mr-[20px] mt-[20px] mb-[20px] flex flex-col p-[5px] w-[140px] border">
                 <img src="../assets/images/_storage_emulated_0_Android_data_com.miui.gallery_cache_SecurityShare_1695724917177.jpg" alt="Profile picture" className="h-[70px] w-[70px] rounded-[50%] m-auto" />

@@ -12,7 +12,7 @@ import { FaFacebookMessenger } from "react-icons/fa";
 function Navbar(props) {
     
 
-    const {closeSearchBar,myJobPage,postJobHandler,homeStateHandler}=props;
+    const {closeSearchBar,myJobPage,postJobHandler,homeStateHandler,myProfilePageHandler}=props;
     
 
 
@@ -101,7 +101,7 @@ function Navbar(props) {
 
             {messageToggle && <ChatsPopup/> }
             {notificationToggle && <NotificationPopup/>}
-            {profileToggle && <Profilepopup closeSearchBar={closeSearchBar} myJobPage={myJobPage} handleProfileScreen={handleProfileScreen} />}
+            {profileToggle && <Profilepopup myProfilePageHandler={myProfilePageHandler} closeSearchBar={closeSearchBar} myJobPage={myJobPage} handleProfileScreen={handleProfileScreen} />}
             {/* <FormForRefer/> */}
 
         </nav>

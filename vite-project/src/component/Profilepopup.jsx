@@ -8,7 +8,7 @@ import { FiHelpCircle } from "react-icons/fi";
 
 function Profilepopup(props) {
 
-    const {closeSearchBar,myJobPage,handleProfileScreen}=props;
+    const {closeSearchBar,myJobPage,handleProfileScreen,myProfilePageHandler}=props;
 
     // const [myjobToggle,setMyjobToggle]=useState(false);
 
@@ -23,7 +23,7 @@ function Profilepopup(props) {
             </div>
             <div className=' p-[20px] '>
 
-                <div  className='popupProfiledesign ' >
+                <div onClick={ ()=> {myProfilePageHandler(); handleProfileScreen();} }  className='popupProfiledesign ' >
                     <CgProfile size={30} className=' mr-[10px] '/>
                     <h3 > <a  className=' font-bold '>Profile</a></h3>
                 </div>
