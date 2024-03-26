@@ -6,6 +6,9 @@ import Line from './component/Line';
 import { useState } from 'react';
 import SignIn from './component/SignIn';
 import MyJobs from './component/MyJobs';
+import FormForRefer from './component/FormForRefer';
+import Home from './Home';
+
 
 
 
@@ -22,28 +25,54 @@ function App() {
   const [experianceOptions] = useState(["Entry Level","Mid Level","Senior Level","No experience required"]);
     
   const [searchBarState,setSearchBarState]=useState(true);
-  
+
   const [myJobState,setMyJobState] = useState(false);
+  const [postJob,setPostJob]=useState(false);
+
+  
+
+  const postJobHandler=()=>{
+    setPostJob(true);
+  }
+  const postJobClose=()=>{
+    setPostJob(false);
+  }
 
   const searchBarHandler=()=>{
     setSearchBarState(false);
 
   }
 
+  const homeStateHandler=()=>{
+    setMyJobState(false);
+    setSearchBarState(true);
+    
+  }
+
+
   const myJobHandler=()=>{
     setMyJobState(true)
   }
-  console.log('this is searchbar:' + searchBarState);
-  console.log('this is Myjob page:'+ myJobState);
+  console.log('this is searchbar main state:' + searchBarState);
+  // console.log('this is Myjob page:'+ myJobState);
+  // console.log('this is Register box======' + postJob);
 
   return (
     <>
-        <Navbar closeSearchBar={searchBarHandler} myJobPage={myJobHandler} />
+        
+            <Navbar closeSearchBar={searchBarHandler} myJobPage={myJobHandler}  postJobHandler={postJobHandler} homeStateHandler={homeStateHandler} />
+        
+
+
+
+        <Home/>
+        
+        {postJob && <FormForRefer postJobClose={postJobClose} />}
 
         {searchBarState && <Searchbar />  }  
 
         {searchBarState &&
-        
+          
           <div className='flex items-center flex-wrap justify-center  py-5 max-w-[1000px] mx-auto'>
         
         <Filter buttonText="Date posted" options={dateOptions} />
@@ -62,14 +91,9 @@ function App() {
         {searchBarState && <Line/>}
         {searchBarState && <Jobpost/> }
            
-        {myJobState ? <MyJobs /> : null}
-      
-      
-      
-      
-      
-
-      
+        {myJobState ? <MyJobs homeStateHandler={homeStateHandler} /> : null}
+        
+  
     </>
   );
 }

@@ -33,4 +33,16 @@
   .chatProfileNotificationsTextDesign{
     @apply m-auto font-medium text-[25px] text-white
   }
+  .referPostInputDesign{
+    @apply outline-none border-b border-gray-400 shadow-sm p-[10px]  rounded-[2px] w-[500px] h-[35px];
+  }
+  .referPostTextDesign{
+    @apply ml-[10px]  text-[15px] font-semibold text-black;
+  }
+  .emaiPhoneinputDesign{
+    @apply w-[300px] outline-none h-[40px] border-b  border-gray-400 p-[5px]
+  }
+  .daysSlecetionbarDesign{
+    @apply p-[5px] border-b border-gray-400 h-[35px] outline-none w-[127px];
+  }
 }

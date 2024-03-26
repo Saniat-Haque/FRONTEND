@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { MdMessage } from "react-icons/md";
+import FormForRefer from './FormForRefer';
+
+
 import { IoNotifications } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import Profilepopup from './Profilepopup';
@@ -8,7 +10,9 @@ import ChatsPopup from "./ChatsPopup";
 import { FaFacebookMessenger } from "react-icons/fa";
 
 function Navbar(props) {
-    const {closeSearchBar,myJobPage}=props;
+    
+
+    const {closeSearchBar,myJobPage,postJobHandler,homeStateHandler}=props;
     
 
 
@@ -57,7 +61,7 @@ function Navbar(props) {
             <div className="flex justify-between h-[70px]  border-solid border-b-[2px] border-gray-300 items-center">
                 <div className=" flex items-center  ">
                     <a className="cursor-pointer ml-[60px] text-2xl font-bold text-blue-600"  href='#'>JOOBEY</a>
-                    <p className=" ml-[20px]  py-[22px] px-[5px] rounded cursor-pointer hover:bg-blue-100 duration-200 ">Home</p>
+                    <p onClick={homeStateHandler} className=" ml-[20px]  py-[22px] px-[5px] rounded cursor-pointer hover:bg-blue-100 duration-200 ">Home</p>
                 </div>
                 <div className='hidden mr-[200px] border  pl-[20px] pr-[20px] pt-1 pb-1 rounded-[30px] text-blue-600 hover:border-blue-600 duration-200'>
                     <button>Sign in</button>
@@ -88,7 +92,7 @@ function Navbar(props) {
                     <div className="h-[40px] w-[1px] bg-black opacity-[.3] m-auto ml-[30px] rounded-[50px]"></div>
 
                     <div className="m-auto">
-                        <button className="m-auto py-[6px]  px-[30px] rounded-[30px] text-[18px] hover:text-white font-bold border border-blue-700 ml-[50px] bg-white  hover:bg-blue-700 duration-200">Refer ?</button>
+                        <button onClick={postJobHandler} className="m-auto py-[6px]  px-[30px] rounded-[30px] text-[18px] hover:text-white font-bold border border-blue-700 ml-[50px] bg-white  hover:bg-blue-700 duration-200">Refer ?</button>
                     </div>
                 </div>
             </div>
@@ -98,6 +102,8 @@ function Navbar(props) {
             {messageToggle && <ChatsPopup/> }
             {notificationToggle && <NotificationPopup/>}
             {profileToggle && <Profilepopup closeSearchBar={closeSearchBar} myJobPage={myJobPage} handleProfileScreen={handleProfileScreen} />}
+            {/* <FormForRefer/> */}
+
         </nav>
     );
 }
